@@ -1,1 +1,37 @@
-# this is just a random file
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Selection</title>
+    <style>
+        button.selected {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2><p style="color: red;">INDIAN MARRIAGE</p></h2>
+    <button onclick="toggleSelection(this)">BEAUTIFUL</button>
+    <button onclick="toggleSelection(this)">SEAL PACK</button>
+    <button onclick="toggleSelection(this)">HUNDA</button>
+
+    <script>
+        let selectedButtons = [];
+
+        function toggleSelection(button) {
+            if (selectedButtons.includes(button)) {
+                button.classList.remove("selected");
+                selectedButtons = selectedButtons.filter(b => b !== button);
+            } else {
+                if (selectedButtons.length >= 2) {
+                    selectedButtons[0].classList.remove("selected");
+                    selectedButtons.shift();
+                }
+                button.classList.add("selected");
+                selectedButtons.push(button);
+            }
+        }
+    </script>
+</body>
+</html>
